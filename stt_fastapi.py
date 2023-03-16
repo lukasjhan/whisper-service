@@ -31,7 +31,7 @@ def ping():
 
 @app.get("/")
 async def usage():
-  return {"usage": "POST /stt"}
+  return {"usage": "POST /stt\n GET /result/{id}"}
 
 @app.get("/result/{id}")
 async def result(id: str):
