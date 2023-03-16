@@ -1,0 +1,30 @@
+cluster_name: ray-cluster-whiser
+
+provider:
+  type: aws
+  region: ap-northeast-2
+  availability_zone: ap-northeast-2
+
+auth:
+  ssh_user: ubuntu
+
+available_node_types:
+  head:
+    node_config:
+      InstanceType: m5.4xlarge
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 10000
+
+  worker:
+    min_workers: 0
+    max_workers: 9
+    node_config:
+      InstanceType: m5.4xlarge
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 10000
+
+head_node_type: head
