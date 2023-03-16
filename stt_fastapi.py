@@ -25,7 +25,7 @@ class TranslateService(object):
     return stt_result["text"]
 
 @app.get("/ping")
-def ping():
+async def ping():
   if TranslateService.get_model() is None:
     raise HTTPException(status_code=404, detail="Model not found")
 
